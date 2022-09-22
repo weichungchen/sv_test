@@ -1,0 +1,4 @@
+module load synopsys/vcs/R-2020.12-SP1
+module load synopsys/verdi/R-2020.12-SP1
+export UVM_HOME=/work/ryanw/UVM/1800.2-2020-1.1/src
+export VCS_UVM_HOME=${UVM_HOME}
