@@ -2,6 +2,12 @@
 
 how to run these cases
 
+1st step
+
+cmd > . load-modules
+
+2nd step
+
 cmd > vcs +vcs+lic+wait -R -sverilog test.sv -l test.log +define+copy_fun2
 
 
