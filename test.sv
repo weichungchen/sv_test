@@ -2005,15 +2005,45 @@ endmodule
 
 module tb;
 
-    bit [2:0] dst_a, dst_b;
+    bit [7:0] dst_a, dst_b;
 
-    covergroup Cov(ref bit [2:0] dst, input int mid);
-    {
-        bins lo = {0:mid-1};
-        bins hi = {mid:$};
-    }
+    covergroup Cov_A(ref bit [2:0] dst, input int mid);
+        a:coverpoint dst_a
+        {
+            bins lo = {[0:mid-1]};
+            bins hi = {[mid:$]};
+        }
+    endgroup
+
+    covergroup Cov_B;
+        b:coverpoint dst_b
+        {
+            bins lo = {[0:9]};
+            bins hi = {[10:19]};
+        }
+        bca : cross b, Cov_A::a;  // Accessing covergroup members using scope resolution operator is not yet supported.
+    endgroup
+
+    // class Cov_cross;
+    //     Cov_A A;
+    //     Cov_B B;
+
+    //     function new();
+    //         A = new();
+    //         B = new();
+    //     endfunction
+    //     
+    //     function void fun_cross();
+    //         AcB : cross A, B  // SystemVerilog  keyword 'cross' is not expected to be used in this context.
+    //         {
+    //             bins AcB_lo = binsof(b.lo);
+    //         }
+    //     endfunction
+
+    // endclass
 
 endmodule
+
 `endif
 
 
