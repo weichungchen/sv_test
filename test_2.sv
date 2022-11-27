@@ -1,9 +1,10 @@
 module test
 {
     input a;
-    output b;
+    input b;
+    output c;
 };
 
-    assign b = a + 1'd1;
+    assign c = a + b;
 
 endmodule
