@@ -4,6 +4,6 @@ module test
     output b;
 };
 
-    assign b =  a;
+    assign b = a + 1'd1;
 
 endmodule
