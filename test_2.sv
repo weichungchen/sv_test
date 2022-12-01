@@ -5,6 +5,6 @@ module test
     output c;
 };
 
-    assign c = a + b;
+    assign c = a + b + 1;
 
 endmodule
